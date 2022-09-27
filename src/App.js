@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useState } from 'react'
+import './App.css'
+import Figth from './components/Fight'
+import Footer from './components/Footer'
+import GameBox from './components/GameBox'
+import Header from './components/Header'
+import Rules from './components/Rules'
+
+export const AppContext = createContext()
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [score, setScore] = useState(0)
+    const [openRules, setOpenRules] = useState(false)
+    const [playerPick, setPlayerPick] = useState('')
+
+    return (
+        <AppContext.Provider value={{ score, setScore, setOpenRules, openRules, playerPick, setPlayerPick }}>
+            <Header />
+            <Rules />
+            <main>
+                <GameBox />
+                <Figth />
+            </main>
+            <button className="btn-rules" onClick={() => setOpenRules(true)}>
+                rules
+            </button>
+            <Footer />
+        </AppContext.Provider>
+    )
 }
 
-export default App;
+export default App
