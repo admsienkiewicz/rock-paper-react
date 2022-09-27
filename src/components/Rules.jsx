@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react'
 import { AppContext } from '../App'
-import rulesImg from '../images/image-rules.svg'
 
 const Rules = () => {
     const { openRules, setOpenRules } = useContext(AppContext)
@@ -13,7 +12,7 @@ const Rules = () => {
                 <span>rules</span>
                 <button className="close-modal" onClick={() => setOpenRules(false)}>{`&#x2715`}</button>
             </div>
-            <img src={rulesImg} alt="rules"></img>
+            <img src={'../images/image-rules.svg'} alt="rules"></img>
         </div>
     )
 }

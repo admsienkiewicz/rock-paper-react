@@ -160,7 +160,7 @@ main {
 
 /* section options */
 .options {
-    background-image: url('images/bg-triangle.svg');
+    background-image: url('../public/images/bg-triangle.svg');
     background-size: cover;
     width: 50%;
     aspect-ratio: 313/278;
