@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
+import { useNavigate } from 'react-router'
 import { AppContext } from '../App'
 
 function Result({ result }) {
+    const navigate = useNavigate()
     const { setPlayerPick, setScore } = useContext(AppContext)
     const updateScore = () => {
         if (result === 'WIN') {
@@ -19,6 +21,7 @@ function Result({ result }) {
                 onClick={() => {
                     setPlayerPick('')
                     updateScore()
+                    navigate('/')
                 }}
             >
                 play again

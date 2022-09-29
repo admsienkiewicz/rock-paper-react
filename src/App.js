@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Figth from './components/Fight'
 import Footer from './components/Footer'
@@ -18,8 +19,12 @@ function App() {
             <Header />
             <Rules />
             <main>
-                <GameBox />
-                <Figth />
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<GameBox />} />
+                        <Route path="/fight" element={<Figth />} />
+                    </Routes>
+                </BrowserRouter>
             </main>
             <button className="btn-rules" onClick={() => setOpenRules(true)}>
                 rules

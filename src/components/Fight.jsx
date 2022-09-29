@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { AppContext } from '../App'
 import OptionCoin from './OptionCoin'
 import Result from './Result'
+import '../App.css'
 
 const Fight = () => {
     const { playerPick } = useContext(AppContext)
@@ -12,11 +13,11 @@ const Fight = () => {
         switch (true) {
             case aiPick === userPick:
                 return 'DRAW'
-            case (aiPick === 'paper' && userPick == 'rock') ||
+            case (aiPick === 'paper' && userPick === 'rock') ||
                 (aiPick === 'scissors' && userPick === 'paper') ||
                 (aiPick === 'rock' && userPick === 'scissors'):
                 return 'LOSS'
-            case (userPick === 'paper' && aiPick == 'rock') ||
+            case (userPick === 'paper' && aiPick === 'rock') ||
                 (userPick === 'scissors' && aiPick === 'paper') ||
                 (userPick === 'rock' && aiPick === 'scissors'):
                 return 'WIN'
@@ -35,8 +36,9 @@ const Fight = () => {
     useEffect(() => {
         generateAiPick()
     }, [playerPick])
+
     return (
-        <section className={`fight ${!playerPick && 'hidden'} `}>
+        <section className="fight">
             <div className={`pick pick--player ${showResult && 'animated'}`}>
                 <span>you picked</span>
                 <OptionCoin optionType={playerPick} />
